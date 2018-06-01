@@ -1,6 +1,6 @@
 # Seqsee analysis
 
-This repository parses the seqsee human data into a pandas dataframe and creates a few simple plots:
+This repository parses the seqsee human data into a pandas dataframe and creates a few simple plots (For those with good vision.. download or run locally for higher resolution & zoom capability):
 
 Time to understand by problem:
 
