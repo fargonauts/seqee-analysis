@@ -1,8 +1,8 @@
 import seaborn           as sns
 import matplotlib.pyplot as plt
 
-from matplotlib import rcParams
-rcParams.update({'figure.autolayout': True})
+#from matplotlib import rcParams
+#rcParams.update({'figure.autolayout': True})
 
 from pprint import pprint
 
@@ -12,6 +12,7 @@ pal    = sns.xkcd_palette(colors)
 amber= sns.xkcd_palette(['amber'])
 
 purple = sns.xkcd_palette(['dusty purple'])
+
 
 def barsave(df, metric, s):
     if s:
@@ -26,7 +27,7 @@ def barsave(df, metric, s):
     plt.clf()
 
 def barplot(df):
-    sns.set(font_scale=.25)
+    sns.set(font_scale=.5, rc={'figure.figsize':(11,11)})
     #pprint(list(df.columns.values))
     for metric in ['total_typing_time', 'time_to_understand']:
         barsave(df, metric, False)
