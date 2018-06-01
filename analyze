@@ -1,14 +1,20 @@
 #!/usr/bin/env python3
-import sys
+import sys, os
 
-from parse import parse
 from pprint import pprint
+
+from parse   import parse
+from convert import convert
+from plot    import plot
 
 def main(args):
     data = dict()
-    for filename in args:
-        data[filename] = parse(filename)
-    pprint(data)
+    for filename in os.listdir('data'):
+        filepath = 'data/' + filename
+        data[filename] = parse(filepath)
+    df = convert(data)
+    pprint(df)
+    plot(df)
 
 if __name__ == '__main__':
     sys.exit(main(sys.argv[1:]))

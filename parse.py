@@ -25,10 +25,18 @@ def parse_datum(line):
     b = b.strip()
     if b in ['?', '']:
         b = None
+    else:
+        try:
+            if a not in ['next_terms_entered', 'position']:
+                b = float(b)
+            else:
+                b = int(b)
+        except ValueError:
+            pass
     return a, b
 
 def save(data, current, section):
-    if current is not None:
+    if current is not None and current != 'BOOK_KEEPING':
         data[current] = deepcopy(section)
         section.clear()
 
@@ -44,7 +52,8 @@ def parse(filename):
                 current = parse_header(line)
             elif line not in ['', '\n']:
                 k, v = parse_datum(line)
-                section[k].append(v)
+                if k != 'start_time':
+                    section[k].append(v)
         save(data, current, section)
     return data
 
