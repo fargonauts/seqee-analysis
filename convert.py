@@ -15,6 +15,8 @@ def convert(data):
     for date, problems in data.items():
         for problem, section in problems.items():
             for k, v in section.items():
+                if len(v) == 1:
+                    v = v[0]
                 longdata[k].append(v)
             longdata['problem'].append(problem)
 

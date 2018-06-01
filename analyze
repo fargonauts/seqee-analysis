@@ -13,7 +13,6 @@ def main(args):
         filepath = 'data/' + filename
         data[filename] = parse(filepath)
     df = convert(data)
-    pprint(df)
     plot(df)
 
 if __name__ == '__main__':
