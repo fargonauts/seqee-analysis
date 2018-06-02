@@ -7,6 +7,8 @@ from parse   import parse
 from convert import convert
 from plot    import plot
 
+from save_problems import save_problems
+
 def main(args):
     data = dict()
     for filename in os.listdir('data'):
@@ -14,6 +16,8 @@ def main(args):
         data[filename] = parse(filepath)
     df = convert(data)
     plot(df)
+    print(df)
+    save_problems(df)
 
 if __name__ == '__main__':
     sys.exit(main(sys.argv[1:]))
