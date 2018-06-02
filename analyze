@@ -16,7 +16,7 @@ def main(args):
         data[filename] = parse(filepath)
     df = convert(data)
     plot(df)
-    print(df)
+    #print(df)
     save_problems(df)
 
 if __name__ == '__main__':
